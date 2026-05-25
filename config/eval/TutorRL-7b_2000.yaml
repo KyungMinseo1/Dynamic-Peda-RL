@@ -1,0 +1,48 @@
+# TutorRL-4b_integrated.yaml
+
+teacher_model:
+  model_name_or_path: models/Qwen2.5-7B-GRPO
+  vllm:
+    temperature: 1.0
+    max_length: 12000
+    max_num_seqs: 512
+    gpu_memory_utilization: 0.4
+    number_of_gpus_per_instance: 1
+    use_v0: false
+    load_and_unload: true
+
+student_model:
+  model_name_or_path: neuralmagic/Meta-Llama-3.1-8B-Instruct-FP8
+  vllm:
+    temperature: 0.6
+    max_length: 12000
+    max_num_seqs: 512
+    gpu_memory_utilization: 0.4
+    number_of_gpus_per_instance: 1
+    use_v0: false
+    load_and_unload: true
+
+judge_model:
+  model_name_or_path: google/gemma-3-27b-it
+  vllm:
+    temperature: 0.6
+    max_length: 12000
+    max_num_seqs: 512
+    gpu_memory_utilization: 0.7
+    number_of_gpus_per_instance: 2
+    max_number_of_instances: 1
+    use_v0: true
+    load_and_unload: true
+
+reward_model:
+  model_name_or_path: "Answer"
+
+logging:
+  wandb: true
+  wandb_project: eval_Integrated_2_LAB
+  wandb_run_name: TutorRL-7B_2000_Integrated
+  run_group: tutor
+  wandb_tags: ["tutor", "7b"]
+
+generation:
+  tokenizer_to_use: models/Qwen2.5-7B-GRPO

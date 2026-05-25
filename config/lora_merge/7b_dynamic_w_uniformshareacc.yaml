@@ -1,0 +1,3 @@
+adapter_path: ./checkpoints/7b_dynamic_w_uniformshareacc
+output_path: ./models/Dynamic-RL-7b_dynamic_w_uniformshareacc
+base_model: Qwen/Qwen2.5-7B-Instruct

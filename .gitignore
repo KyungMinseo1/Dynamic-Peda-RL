@@ -1,0 +1,10 @@
+./wandb/
+output
+outputs
+.env
+__pycache__
+checkpoints
+
+data/sft_accepted_preference.jsonl
+data/preference.json
+data/original/rollouts_original.csv
